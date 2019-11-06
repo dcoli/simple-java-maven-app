@@ -2,6 +2,8 @@ pipeline {
     agent {
       label 'docker_local' 
     }
+    stages {
+        stage('Build') { 
             agent {
                 docker_local {
                     // Set both label and image
@@ -10,8 +12,6 @@ pipeline {
                     args '--privileged -v /root/.m2:/root/.m2'
 		}
             }
-    stages {
-        stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
