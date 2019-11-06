@@ -4,10 +4,9 @@ pipeline {
         stage('Build') { 
             agent {
                 docker {
-                    // Set both label and image
                     label 'any'
                     image 'maven:3-alpine' 
-                    args '-v /root/.m2:/root/.m2'
+                    args '--privileged -v /root/.m2:/root/.m2'
 		}
             }
             steps {
