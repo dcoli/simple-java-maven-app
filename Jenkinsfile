@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker.withTool('docker') {
+        docker.withTool('') {
             image 'maven:3-alpine' 
             args '--privileged -v /root/.m2:/root/.m2' 
         }
