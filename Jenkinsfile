@@ -1,5 +1,5 @@
 pipeline {
-    agent { local 'docker_local' }
+    agent { label 'docker_local' }
     stages {
         stage('Build') { 
             agent {
