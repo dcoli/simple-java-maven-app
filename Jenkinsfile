@@ -5,9 +5,9 @@ pipeline {
     stages {
         stage('Build') { 
             agent {
-                docker_local {
+                docker {
                     // Set both label and image
-//                    label 'docker'
+                    label 'docker_local'
                     image 'maven:3-alpine' 
                     args '--privileged -v /root/.m2:/root/.m2'
 		}
