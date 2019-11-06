@@ -1,7 +1,4 @@
 pipeline {
-//    agent {
-//      label 'docker_local' 
-//    }
             agent {
                 docker {
                     // Set both label and image
@@ -13,7 +10,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'export PATH=$PATH:/usr/local/bin; mvn -B -DskipTests clean package'
             }
         }
     }
