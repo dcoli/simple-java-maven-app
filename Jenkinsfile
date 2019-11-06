@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {
+        docker.withTool('docker') {
             image 'maven:3-alpine' 
             args '--privileged -v /root/.m2:/root/.m2' 
         }
@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+             	    sh 'mvn -B -DskipTests clean package'
             }
         }
     }
