@@ -2,7 +2,7 @@ pipeline {
             agent {
               docker {
                 image 'maven:3-alpine'
-                args '--privileged -v .m2:.m2'
+                args ' -v ./.m2:./.m2'
               }
             }
     stages {
