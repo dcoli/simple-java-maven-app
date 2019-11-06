@@ -1,6 +1,8 @@
 pipeline {
+//    agent { label 'dockerlocal' }
     agent {
-      dockerlocal {
+      docker {
+           label 'dockerlocal'
            image 'maven:3-alpine'
            args '--privileged -v /root/.m2:/root/.m2'
       }
