@@ -3,7 +3,7 @@ pipeline {
 //      label 'docker' 
 //    }
             agent {
-                docker.withTool('docker_local') {
+                docker_local.withTool('') {
                     // Set both label and image
 //                    label 'docker'
                     image 'maven:3-alpine' 
