@@ -6,10 +6,11 @@ pipeline {
         stage('Build') { 
             agent {
                 docker {
-                // Set both label and image
-                label 'docker'
-                image 'maven:3-alpine' 
-                args '--privileged -v /root/.m2:/root/.m2'
+                    // Set both label and image
+                    label 'docker'
+                    image 'maven:3-alpine' 
+                    args '--privileged -v /root/.m2:/root/.m2'
+		}
             }
             steps {
                 sh 'mvn -B -DskipTests clean package'
