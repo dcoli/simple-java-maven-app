@@ -1,13 +1,13 @@
 pipeline {
-    agent {
-      label 'docker' 
-    }
+//    agent {
+//      label 'docker' 
+//    }
     stages {
         stage('Build') { 
             agent {
-                docker {
+                docker.withTool('docker_local') {
                     // Set both label and image
-                    label 'docker'
+//                    label 'docker'
                     image 'maven:3-alpine' 
                     args '--privileged -v /root/.m2:/root/.m2'
 		}
