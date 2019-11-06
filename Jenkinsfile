@@ -1,10 +1,10 @@
 pipeline {
-    agent { label 'any' }
+    agent { label 'dockerserver' }
     stages {
         stage('Build') { 
             agent {
                 docker {
-                    label 'any'
+                    label 'dockerserver'
                     image 'maven:3-alpine' 
                     args '--privileged -v /root/.m2:/root/.m2'
 		}
