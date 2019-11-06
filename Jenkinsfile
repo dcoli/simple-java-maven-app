@@ -1,14 +1,13 @@
 pipeline {
-//    agent { label 'dockerlocal' }
+    agent { label 'dockerlocal' }
+    stages {
+        stage('Build') { 
     agent {
       docker {
-           label 'dockerlocal'
            image 'maven:3-alpine'
            args '--privileged -v /root/.m2:/root/.m2'
       }
     }
-    stages {
-        stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
